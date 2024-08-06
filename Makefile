@@ -13,6 +13,9 @@ all:
 test: 
 	$(GOTEST) -v ./...
 
+build-cmd: 
+	$(GOBUILD) -o monlang ./cmd/monlang/main.go  
+
 
 fmt:
 	$(GOFMT) -w ./..

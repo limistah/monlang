@@ -1,7 +1,6 @@
 package lexer
 
 import (
-	"fmt"
 	"monkey/packages/token"
 )
 
@@ -37,7 +36,6 @@ func (l *Lexer) NextToken() token.Token {
 
 	l.skipWhiteSpace()
 
-	fmt.Println(string(l.ch))
 	switch l.ch {
 	case '=':
 		if l.peekChar() == '=' {
