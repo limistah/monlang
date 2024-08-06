@@ -22,7 +22,7 @@ const (
 	SLASH    = "/"
 
 	// Delimeters
-	COMMA = ","
+	COMMA     = ","
 	SEMICOLON = ";"
 
 	// blocks
