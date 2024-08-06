@@ -1,9 +1,9 @@
 package lexer
 
 import (
-	"fmt"
-	"github.com/limistah/monlang/packages/token"
 	"testing"
+
+	"github.com/limistah/monlang/packages/token"
 )
 
 type testTokenType struct {
@@ -110,15 +110,13 @@ if (5 < 10) {
 
 	l := New(input)
 	for i, tt := range tests {
-		t.Run(fmt.Sprintf("Running test at [%d]", i), func(t *testing.T) {
-			tok := l.NextToken()
-			if tok.Type != tt.expectedType {
-				t.Fatalf("tests[%d] - tokentype wrong. expected=%q, got %q", i, tt.expectedType, tok.Type)
-			}
+		tok := l.NextToken()
+		if tok.Type != tt.expectedType {
+			t.Fatalf("tests[%d] - tokentype wrong. expected=%q, got %q", i, tt.expectedType, tok.Type)
+		}
 
-			if tok.Literal != tt.expectedLiteral {
-				t.Fatalf("tests[%d] - literal wrong. expected=%q, got %q", i, tt.expectedLiteral, tok.Literal)
-			}
-		})
+		if tok.Literal != tt.expectedLiteral {
+			t.Fatalf("tests[%d] - literal wrong. expected=%q, got %q", i, tt.expectedLiteral, tok.Literal)
+		}
 	}
 }
