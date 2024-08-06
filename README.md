@@ -1,6 +1,6 @@
 # MonLang
 
-This is a HHLL written with Golang.
+This is a HHLL written in Golang.
 
 It follows the teachings from Thorsten Ball's book Writing an interpreter in Go.
 
