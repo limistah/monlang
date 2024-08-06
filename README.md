@@ -3,7 +3,7 @@
 
 This is a HHLL written in Golang.
 
-It follows the teachings from Thorsten Ball's book Writing an interpreter in Go.
+It follows the teachings from Thorsten Ball's book [Writing An Interpreter In Go](https://interpreterbook.com/).
 
 ## Syntax
 
