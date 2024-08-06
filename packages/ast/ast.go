@@ -35,6 +35,12 @@ type Identifier struct {
 	Value string
 }
 
+func (i *Identifier) TokenLiteral() string {
+	return i.Token.Literal
+}
+
+func (i Identifier) expressionNode () {}
+
 type LetStatement struct {
 	Token token.Token
 	Name  *Identifier
