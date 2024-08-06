@@ -4,8 +4,9 @@ import (
 	"bufio"
 	"fmt"
 	"io"
-	"monkey/packages/lexer"
-	"monkey/packages/token"
+
+	"github.com/limistah/monlang/packages/lexer"
+	"github.com/limistah/monlang/packages/token"
 )
 
 const PROMPT = ">>>"

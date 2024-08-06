@@ -2,7 +2,7 @@ package lexer
 
 import (
 	"fmt"
-	"monkey/packages/token"
+	"github.com/limistah/monlang/packages/token"
 	"testing"
 )
 

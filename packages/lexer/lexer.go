@@ -1,7 +1,7 @@
 package lexer
 
 import (
-	"monkey/packages/token"
+	"github.com/limistah/monlang/packages/token"
 )
 
 type Lexer struct {
