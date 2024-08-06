@@ -23,7 +23,6 @@ const (
 
 	// Delimeters
 	COMMA = ","
-
 	SEMICOLON = ";"
 
 	// blocks
@@ -41,6 +40,7 @@ const (
 	ELSE     = "ELSE"
 	RETURN   = "RETURN"
 
+	// operators
 	EQ  = "=="
 	NEQ = "!="
 	LT  = "<"
@@ -59,7 +59,6 @@ var keywords = map[string]TokenType{
 
 func LookupIdent(ident string) TokenType {
 	if tok, ok := keywords[ident]; ok {
-
 		return tok
 	}
 	return IDENT
