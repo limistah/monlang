@@ -3,7 +3,7 @@ GOCMD ?= go
 GOBUILD = $(GOCMD) build
 GOFMT = gofmt
 GOTEST = $(GOCMD) test
-
+BINARYNAME = monlang
 
 default: fmt
 
@@ -13,8 +13,8 @@ all:
 test: 
 	$(GOTEST) -v ./...
 
-build-cmd: 
-	$(GOBUILD) -o monlang ./cmd/monlang/main.go  
+build: 
+	$(GOBUILD) -o $(BINARYNAME) ./cmd/monlang/main.go  
 
 
 fmt:
