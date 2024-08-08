@@ -13,7 +13,8 @@ ifeq ($(UNAME), s390x)
 else
 	RACE=-race
 endif
-GOTEST_QUIET=$(GO) test $(RACE)
+
+GOTEST_QUIET=$(GOCMD) test $(RACE)
 GOTEST=$(GOTEST_QUIET) -v
 
 default: fmt \
@@ -23,8 +24,8 @@ all:
 	test fmt
 
 .PHONY: test
-test: 
-	$(GOTEST) -v ./...
+test:
+	$(GOTEST_QUIET)  ./...
 
 test-ci: test cover
 
