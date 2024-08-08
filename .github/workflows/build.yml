@@ -1,0 +1,13 @@
+name: Test and Build binaries
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout
+      - uses: actions/setup-go
+      - run: go version
+      - run: make test
