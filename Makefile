@@ -2,20 +2,42 @@
 GOCMD ?= go
 GOBUILD = $(GOCMD) build
 GOFMT = gofmt
-GOTEST = $(GOCMD) test
-BINARYNAME = monlang
+INTERPRETER_BINARY_NAME = monlang
+COVEROUT=cover.out
 
-default: fmt
+
+UNAME := $(shell uname -m)
+ifeq ($(UNAME), s390x)
+# go test does not support -race flag on s390x architecture
+	RACE=
+else
+	RACE=-race
+endif
+GOTEST_QUIET=$(GO) test $(RACE)
+GOTEST=$(GOTEST_QUIET) -v
+
+default: fmt \
+	test
 
 all:
 	test fmt
 
+.PHONY: test
 test: 
 	$(GOTEST) -v ./...
 
-build: 
-	$(GOBUILD) -o $(BINARYNAME) ./cmd/monlang/main.go  
+test-ci: test cover
 
+.PHONY: cover
+cover:
+	bash -c "set -e; set -o pipefail; STORAGE=memory $(GOTEST) -timeout 5m -coverprofile $(COVEROUT) ./... | tee test-results.json"
+	go tool cover -html=$(COVEROUT) -o cover.html
+
+build-all: build-interpreter
+
+.PHONY: build-interpreter
+build-interpreter:
+	$(GOBUILD) -o $(INTERPRETER_BINARY_NAME) ./cmd/monlang/main.go
 
 fmt:
 	$(GOFMT) -w ./..

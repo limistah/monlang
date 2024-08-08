@@ -10,4 +10,10 @@ jobs:
       - uses: actions/checkout
       - uses: actions/setup-go
       - run: go version
-      - run: make test
+        # download dependencies separately to keep unit test step's output cleaner
+      - name: go mod download
+        run: go mod download
+      - name: Run test
+        run: make test
+      - name: Run coverage
+        run: make cover
