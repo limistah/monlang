@@ -17,7 +17,7 @@ runs:
         # sleep 10 seconds between retries
         attempt_delay: 10000
         uses: codecov/codecov-action@v4.0.1
-        with:
+        with: |
           files: ${{ inputs.files }}
           flags: ${{ inputs.flags }}
           verbose: true
