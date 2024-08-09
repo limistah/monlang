@@ -23,3 +23,8 @@ jobs:
         run: go mod download
       - name: Run test
         run: make test-ci
+      - name: Upload coverage to codecov
+        uses: ./.github/actions/upload-codecov
+        with:
+          files: cover.out
+          flags: unittests
