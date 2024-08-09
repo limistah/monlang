@@ -2,7 +2,7 @@
 # MonLang
 
 [![codecov](https://codecov.io/gh/limistah/monlang/graph/badge.svg?token=Z232S748YR)](https://codecov.io/gh/limistah/monlang)
-
+![example workflow](https://github.com/limistah/monlang/actions/workflows/unit-test.yml/badge.svg)
 This is a HHLL written in Golang.
 
 It follows the teachings from Thorsten Ball's book [Writing An Interpreter In Go](https://interpreterbook.com/).
