@@ -1,4 +1,3 @@
-
 GOCMD ?= go
 GOBUILD = $(GOCMD) build
 GOFMT = gofmt
@@ -42,3 +41,7 @@ build-interpreter:
 
 fmt:
 	$(GOFMT) -w ./..
+
+start-repl:
+	$(GOCMD) run ./cmd/monlang/main.go
+

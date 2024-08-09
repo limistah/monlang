@@ -121,7 +121,6 @@ func (p *Parser) nextToken() {
 }
 
 func (p *Parser) parseStatement() ast.Statement {
-	fmt.Println(p.curToken.Type)
 	switch p.curToken.Type {
 	case token.LET:
 		return p.parseLetStatement()

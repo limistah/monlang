@@ -29,13 +29,36 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		io.WriteString(out, program.String())
-		io.WriteString(out, "\n")
+		_, err := io.WriteString(out, program.String())
+		if err != nil {
+			printIOError(err)
+		}
+		_, err = io.WriteString(out, "\n")
+		if err != nil {
+			printIOError(err)
+		}
+	}
+}
+
+func printIOError(err error) {
+	if err != nil {
+		fmt.Printf(err.Error())
 	}
 }
 
 func printParserErrors(out io.Writer, errors []string) {
+	_, err := io.WriteString(out, "Whoops! We ran into some monkey business here!\n")
+	if err != nil {
+		printIOError(err)
+	}
 	for _, msg := range errors {
-		io.WriteString(out, msg)
+		_, err = io.WriteString(out, "\t"+msg+"\n")
+		if err != nil {
+			printIOError(err)
+		}
+	}
+	_, err = io.WriteString(out, "\n")
+	if err != nil {
+		printIOError(err)
 	}
 }
