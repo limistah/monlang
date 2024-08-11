@@ -56,6 +56,23 @@ func TestBangOperator(t *testing.T) {
 	}
 }
 
+func TestEvalIntegerExpression(t *testing.T) {
+	tests := []struct {
+		input    string
+		expected int64
+	}{
+		{"9", 9},
+		{"8", 8},
+		{"-8", -8},
+		{"-10", -10},
+	}
+
+	for _, tt := range tests {
+		evaluated := testEval(tt.input)
+		testIntegerObject(t, evaluated, tt.expected)
+	}
+}
+
 func testEval(input string) object.Object {
 	l := lexer.New(input)
 	p := parser.New(l)
