@@ -2,11 +2,10 @@ package parser
 
 import (
 	"fmt"
-	"strconv"
-
 	"github.com/limistah/monlang/packages/ast"
 	"github.com/limistah/monlang/packages/lexer"
 	"github.com/limistah/monlang/packages/token"
+	"strconv"
 )
 
 const (

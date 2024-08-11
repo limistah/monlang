@@ -3,6 +3,7 @@ package repl
 import (
 	"bufio"
 	"fmt"
+	"github.com/limistah/monlang/packages/evaluator"
 	"github.com/limistah/monlang/packages/parser"
 	"io"
 
@@ -29,14 +30,12 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		_, err := io.WriteString(out, program.String())
-		if err != nil {
-			printIOError(err)
+		evaluated := evaluator.Eval(program)
+		if evaluated != nil {
+			io.WriteString(out, evaluated.Inspect())
+			io.WriteString(out, "\n")
 		}
-		_, err = io.WriteString(out, "\n")
-		if err != nil {
-			printIOError(err)
-		}
+
 	}
 }
 
